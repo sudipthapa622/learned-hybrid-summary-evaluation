@@ -1,24 +1,26 @@
-# learned-hybrid-summary-evaluation
-Implementation of a Learned Hybrid metric for reference-based evaluation of AI-generated text summaries
 # Learned Hybrid Metric for Reference-Based Evaluation of AI-Generated Summaries
 
-This repository contains the REALSumm experiment for the research project:
+This repository contains the implementation developed for the research project:
 
 **A Learned Hybrid Metric for Reference-Based Evaluation of AI-Generated Text Summaries**
 
-The study investigates whether lexical, semantic, NLI-derived factuality, and structural features can be combined into a learned evaluation metric that aligns more strongly with human summary-quality judgments.
+The study investigates whether lexical, semantic, NLI-derived factuality, and structural features can be combined into a Learned Hybrid evaluation metric that aligns more strongly with human judgments of summary quality and content coverage.
 
-## REALSumm Experiment
+## Experiments
 
-The notebook includes:
+The repository contains implementations for two human-annotated summarisation benchmarks:
 
-- REALSumm dataset preparation and validation
+### REALSumm
+
+The REALSumm experiment includes:
+
+- dataset preparation and validation
 - document-grouped development and locked holdout splitting
 - structural feature extraction
 - NLI-derived factuality features
 - individual automatic-metric baselines
-- fixed-weight Manual Hybrid evaluation
-- Learned Hybrid model comparison and selection
+- fixed-weight Manual Hybrid metric
+- Learned Hybrid model comparison
 - feature-family ablation
 - locked holdout evaluation
 - document-level bootstrap confidence intervals
@@ -27,15 +29,43 @@ The notebook includes:
 - within-document pairwise ranking evaluation
 - final frozen model specification
 
-## Notebook
+### RoSE
 
-- `REALSumm_GitHub.ipynb` — complete REALSumm experimental workflow
+The RoSE CNN/DailyMail experiment includes:
 
-## Dataset
+- RoSE dataset preparation and standardisation
+- document-grouped development and locked holdout splitting
+- structural feature extraction
+- ROUGE-L, BERTScore F1, and MoverScore baselines
+- source-grounded NLI factuality features
+- fixed-weight Manual Hybrid metric
+- leakage-safe Learned Hybrid model comparison
+- locked holdout evaluation
+- pairwise ranking evaluation
+- document-level bootstrap confidence intervals
+- paired significance testing
+- calibration and agreement analysis
+- feature-family ablation
+- summary-level and system-level evaluation
+- final frozen model specification
 
-The REALSumm dataset file is not currently included in this repository.
+## Notebooks
 
-The notebook expects:
+- `REALSumm_GitHub.ipynb` — REALSumm experimental implementation
+- `RoSE_GitHub.ipynb` — RoSE CNN/DailyMail experimental implementation
 
-```text
-REALSumm_data.csv
+## Requirements
+
+Python dependencies used by the experiments are listed in:
+
+`requirements.txt`
+
+## Datasets
+
+The datasets are not redistributed as part of this repository.
+
+The notebooks document the dataset preparation and loading procedures used for the experiments.
+
+## Research Status
+
+This repository accompanies a Master by Research thesis and provides the implementation notebooks used to document the experimental workflow and support inspection and reproducibility of the study.
